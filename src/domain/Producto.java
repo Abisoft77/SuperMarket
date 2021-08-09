@@ -2,13 +2,12 @@ package domain;
 
 public class Producto {
     private String nombre;
-    private String codigo;
+    private int codigo;
+    private static int contadorCodigo;
     private double precio;
 
-    public Producto(String nombre, String codigo, double precio) {
-        this.nombre = nombre;
-        this.codigo = codigo;
-        this.precio = precio;
+    public Producto() {
+        this.codigo = ++Producto.contadorCodigo;
     }
 
     public String getNombre() {
@@ -19,7 +18,7 @@ public class Producto {
         this.nombre = nombre;
     }
 
-    public String getCodigo() {
+    public int getCodigo() {
         return codigo;
     }
 
@@ -33,10 +32,6 @@ public class Producto {
 
     @Override
     public String toString() {
-        return "{" +
-                "nombre='" + nombre + '\'' +
-                ", codigo='" + codigo + '\'' +
-                ", precio=" + precio +
-                '}';
+        return codigo +"\t"+ nombre+"\t\t\t\t"+ precio ;
     }
 }
